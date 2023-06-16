@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_project/provider/signup_provider.dart';
+import 'package:provider_project/widget.dart';
 
-class LoginPages extends StatefulWidget {
-  const LoginPages({Key? key}) : super(key: key);
-
-  @override
-  State<LoginPages> createState() => _LoginPagesState();
-}
-
-class _LoginPagesState extends State<LoginPages> {
+class LoginPages extends StatelessWidget {
+  LoginPages({Key? key}) : super(key: key);
 
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
 
   @override
@@ -26,29 +22,42 @@ class _LoginPagesState extends State<LoginPages> {
         child: Column(
           children: [
             const Text('Login', style: TextStyle(fontSize: 50)),
-            TextField(
+            CustomTextField(
+              hintText: 'Email',
               controller: emailController,
-              decoration: const InputDecoration(hintText: "Email",icon: Icon(Icons.email_rounded,color: Colors.black)),
+              keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 20),
-            TextField(
-              obscureText: true,
+            CustomTextField(
+              hintText: 'Password',
               controller: passwordController,
-              decoration: const InputDecoration(hintText: "Password",icon: Icon(Icons.password_rounded,color: Colors.black)),
+              keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 20),
             GestureDetector(
-              onTap: (){
-                authProvider.login(emailController.text.toString(),passwordController.text.toString());
+              onTap: () {
+                authProvider.validator(
+                    emailController.text, passwordController.text);
+                authProvider.login(emailController.text.toString(),
+                    passwordController.text.toString());
                 emailController.clear();
                 passwordController.clear();
               },
               child: Container(
                 height: 50,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.green),
-                  child: Center(
-                    child: authProvider.loading ? const CircularProgressIndicator(color: Colors.white,) : const Text('Login',style: TextStyle(color: Colors.white),),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.green),
+                child: Center(
+                  child: authProvider.loading
+                      ? const CircularProgressIndicator(
+                    color: Colors.white,
+                  )
+                      : const Text(
+                    'Login',
+                    style: TextStyle(color: Colors.white),
                   ),
+                ),
               ),
             ),
           ],

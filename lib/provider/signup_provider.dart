@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:provider_project/model/sign_up_model.dart';
 import 'package:provider_project/services/signup_services.dart';
 
 class SignUpDataClass extends ChangeNotifier {
+
   bool _loading = false;
   bool isBack = false;
 
@@ -14,7 +16,6 @@ class SignUpDataClass extends ChangeNotifier {
     _loading = value;
     notifyListeners();
   }
-
 
   Future<void> postData(SignUpBody body) async {
     _loading = true;
@@ -26,7 +27,6 @@ class SignUpDataClass extends ChangeNotifier {
     _loading = false;
     notifyListeners();
   }
-
 
   void login(String email, String password) async {
     setLoading(true);
@@ -46,4 +46,20 @@ class SignUpDataClass extends ChangeNotifier {
       print(e.toString());
     }
   }
+
+
+  Future<void> validator(String email, String password) async {
+    if (email.isEmpty) {
+      // return 'Email';
+      print('Enter the Email address');
+    } else if (password.isEmpty) {
+      // return 'password';
+      print('Enter the password');
+    }
+    notifyListeners();
+    return;
+
+  }
+
+
 }
