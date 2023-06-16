@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_project/res/components/round_button.dart';
@@ -15,7 +16,6 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
 
   ValueNotifier<bool> obscurePassword = ValueNotifier<bool>(true);
-
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -79,8 +79,7 @@ class _LoginViewState extends State<LoginView> {
                             obscurePassword.value = !obscurePassword.value ;
                           },
                           child: Icon(
-                              obscurePassword.value ?  Icons.visibility_off_outlined :
-                              Icons.visibility
+                              obscurePassword.value ? Icons.visibility_off_outlined : Icons.visibility
                           )),
                     ),
                   );
@@ -103,14 +102,12 @@ class _LoginViewState extends State<LoginView> {
                     'email' : emailController.text.toString(),
                     'password' : passwordController.text.toString(),
                   };
-
-                  // Map data = {
-                  //   'email' : 'eve.holt@reqres.in',
-                  //   'password' : 'cityslicka',
-                  // };
-
-                  authViewMode.loginApi(data , context);
-                  print('api hit');
+                  // 'email' : 'eve.holt@reqres.in',
+                  // 'password' : 'cityslicka',
+                  authViewMode.loginApi(data,context);
+                  if (kDebugMode) {
+                    print('api hit');
+                  }
                 }
               },
             ),

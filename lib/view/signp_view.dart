@@ -121,7 +121,7 @@ class _SignUpViewState extends State<SignUpView> {
                 onTap: (){
                   Navigator.pushNamed(context, RoutesName.login);
                 },
-                  child: const Text("Already  hace an accont? Login"))
+                  child: const Text("Already have an account? Login"))
 
             ],
           ),

@@ -14,13 +14,10 @@ class Utils {
   }
 
 
-  static void fieldFocusChange(
-      BuildContext context, FocusNode current, FocusNode nextFocus) {
+  static void fieldFocusChange(BuildContext context, FocusNode current, FocusNode nextFocus) {
     current.unfocus();
     FocusScope.of(context).requestFocus(nextFocus);
   }
-
-
 
   static toastMessage(String message) {
     Fluttertoast.showToast(
@@ -40,7 +37,7 @@ class Utils {
         message: message,
         duration: const Duration(seconds: 3),
         borderRadius: BorderRadius.circular(8),
-        flushbarPosition: FlushbarPosition.BOTTOM,
+        flushbarPosition: FlushbarPosition.TOP,
         backgroundColor: Colors.red,
         reverseAnimationCurve: Curves.easeInOut,
         positionOffset: 20,

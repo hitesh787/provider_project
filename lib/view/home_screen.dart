@@ -30,7 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
     final userPrefernece = Provider.of<UserViewModel>(context);
     return Scaffold(
       appBar: AppBar(
+        title: Text('Home',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
         automaticallyImplyLeading: false,
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
         actions: [
           InkWell(
               onTap: (){
@@ -38,10 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pushNamed(context, RoutesName.login);
                 });
               },
-              child: const Center(child: Text('Logout'))),
+              child: const Center(child: Icon(Icons.login_rounded,color: Colors.black,))),
           const SizedBox(width: 20,)
         ],
       ),
+      backgroundColor: Colors.white,
       body: ChangeNotifierProvider<HomeViewViewModel>(
         create: (BuildContext context) => homeViewViewModel,
         child: Consumer<HomeViewViewModel>(
@@ -82,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }
               return Container();
             }),
-      ) ,
+      ),
     );
   }
 }

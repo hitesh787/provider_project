@@ -7,7 +7,7 @@ import 'package:provider_project/res/app_url.dart';
 
 class HomeRepository {
 
-  BaseApiServices _apiServices = NetworkApiService() as BaseApiServices ;
+  final BaseApiServices _apiServices = NetworkApiService() ;
 
   Future<MovieListModel> fetchMoviesList()async{
 

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_project/provider/bottom_navigator_provider.dart';
+import 'package:provider_project/screen/String_course_screen.dart';
+import 'package:provider_project/screen/add_remove_screen.dart';
+import 'package:provider_project/screen/provider_demo_screen.dart';
+import 'package:provider_project/view/home_screen.dart';
 
 class BottomNavigatorBar extends StatefulWidget {
   const BottomNavigatorBar({Key? key}) : super(key: key);
@@ -13,26 +17,21 @@ class BottomNavigatorBar extends StatefulWidget {
 class _BottomNavigatorBarState extends State<BottomNavigatorBar> {
   @override
   Widget build(BuildContext context) {
-    List<String> screen = [
-      'Home',
-      'Profile',
-      'Cart',
-      'Message',
-      'Message',
+    List<Widget> screen = [
+      const HomeScreen(),
+      const CourseScreen(),
+      const MyHomePage(),
+      const ProviderDemoScreen(),
     ];
     final bottomProvider = Provider.of<BottomNavigatorBarProvider>(context);
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-          child: Text(
-        screen[bottomProvider.selectedIndex],
-        style: const TextStyle(fontSize: 50, color: Colors.white),
-      )),
+      backgroundColor: Colors.white,
+      body: screen[bottomProvider.selectedIndex],
       bottomNavigationBar: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         height: 74,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22), color: Colors.white),
+            borderRadius: BorderRadius.circular(22), color: Colors.black),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: GNav(
@@ -52,14 +51,14 @@ class _BottomNavigatorBarState extends State<BottomNavigatorBar> {
               color: const Color(0xff53E88B),
               tabBorderRadius: 12,
               iconSize: 24,
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.black,
               style: GnavStyle.google,
-              textStyle: const TextStyle(fontSize: 12,fontWeight: FontWeight.w400,color: Colors.black),
+              textStyle: const TextStyle(fontSize: 12,fontWeight: FontWeight.w400,color: Colors.white),
               tabs: const [
-                GButton(icon: Icons.home,text: ' Home',),
-                GButton(icon: Icons.person,text: ' Profile',),
-                GButton(icon: Icons.card_travel,text: ' Cart',),
-                GButton(icon: Icons.message, text: ' Message',),
+                GButton(icon: Icons.home,text: 'Home',),
+                GButton(icon: Icons.person,text: 'Profile',),
+                GButton(icon: Icons.card_travel,text: 'Cart',),
+                GButton(icon: Icons.message, text: 'Message',),
               ],
           ),
         ),

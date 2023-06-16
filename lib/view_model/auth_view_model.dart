@@ -31,9 +31,7 @@ class AuthViewModel with ChangeNotifier {
   }
 
   Future<void> loginApi(dynamic data , BuildContext context) async {
-
     setLoading(true);
-
     _myRepo.loginApi(data).then((value){
       setLoading(false);
       final userPreference = Provider.of<UserViewModel>(context , listen: false);
@@ -42,9 +40,8 @@ class AuthViewModel with ChangeNotifier {
           token: value['token'].toString()
         )
       );
-
       Utils.flushBarErrorMessage('Login Successfully', context);
-      Navigator.pushNamed(context, RoutesName.home);
+      Navigator.pushNamed(context, RoutesName.bottom);
       if(kDebugMode){
         print(value.toString());
 
@@ -67,7 +64,7 @@ class AuthViewModel with ChangeNotifier {
     _myRepo.signUpApi(data).then((value){
       setSignUpLoading(false);
       Utils.flushBarErrorMessage('SignUp Successfully', context);
-      Navigator.pushNamed(context, RoutesName.home);
+      Navigator.pushNamed(context, RoutesName.bottom);
       if(kDebugMode){
         print(value.toString());
 
