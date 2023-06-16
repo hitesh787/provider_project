@@ -8,7 +8,6 @@ class LoginPages extends StatelessWidget {
   LoginPages({Key? key}) : super(key: key);
 
   TextEditingController emailController = TextEditingController();
-
   TextEditingController passwordController = TextEditingController();
 
   @override
@@ -33,21 +32,25 @@ class LoginPages extends StatelessWidget {
               icons: Icons.password,
               hintText: 'Password',
               controller: passwordController,
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.text,
             ),
             const SizedBox(height: 30,),
             GestureDetector(
               onTap: () {
-                authProvider.validator(
-                    emailController.text, passwordController.text);
-                authProvider.login(emailController.text.toString(),
-                    passwordController.text.toString());
-                emailController.clear();
-                passwordController.clear();
-
-                Utils.flushBarErrorMessage('No internet connection', context);
-                // Utils.toastMessage('Login Successfully');
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => const BottomNavigatorBar()));
+                if(emailController.text.isEmpty){
+                  Utils.flushBarErrorMessage('Please enter email', context);
+                }else if(passwordController.text.isEmpty){
+                  Utils.flushBarErrorMessage('Please enter password', context);
+                }else if(passwordController.text.length < 6){
+                  Utils.flushBarErrorMessage('Please enter 6 digit password', context);
+                }else{
+                  Map data = {
+                    'email' :emailController.text.toString(),
+                    'password' :passwordController.text.toString(),
+                  };
+                }
+                authProvider.validator(emailController.text, passwordController.text);
+                authProvider.login(emailController.text.toString(), passwordController.text.toString());
               },
               child: Container(
                 height: 60,

@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanged,
       controller: controller,
       validator: validator,
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
         icon: Icon(icons,color: Colors.black,size: 32),
