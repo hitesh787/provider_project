@@ -6,8 +6,17 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? onChanged;
   final TextInputType? keyboardType;
   final String? hintText;
-  // final
-  const CustomTextField({Key? key, required this.controller, this.validator, this.keyboardType, this.hintText, this.onChanged}) : super(key: key);
+  final IconData? icons;
+
+  const CustomTextField(
+      {Key? key,
+      required this.controller,
+      this.validator,
+      this.keyboardType,
+      this.hintText,
+      this.onChanged,
+      this.icons})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +26,9 @@ class CustomTextField extends StatelessWidget {
       validator: validator,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
-          hintText: hintText,
-          icon: const Icon(Icons.email_rounded, color: Colors.black)),
+        hintText: hintText,
+        icon: Icon(icons,color: Colors.black,size: 32),
+      ),
     );
   }
 }

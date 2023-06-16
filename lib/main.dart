@@ -21,8 +21,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => AddAndRemove()),
         ChangeNotifierProvider(create: (context) => ChangeCourse()),
         ChangeNotifierProvider(create: (context) => DataClass()),
-        ChangeNotifierProvider(
-            create: (context) => BottomNavigatorBarProvider()),
+        ChangeNotifierProvider(create: (context) => BottomNavigatorBarProvider()),
         ChangeNotifierProvider(create: (context) => SignUpDataClass()),
       ],
       child: MaterialApp(
