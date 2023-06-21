@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
-import 'package:provider_project/model/data_model.dart';
+import 'package:provider_project/model/datamodelclass1.dart';
 import 'package:provider_project/services/get_data_api.dart';
 
-class DataClass extends ChangeNotifier{
+class EventClass extends ChangeNotifier{
 
-  DataModel? post;
+  EventModel? data;
   bool isLoading = false;
 
-  getPostData() async {
+  getEventData() async {
     isLoading = true;
-    post = (await getSinglePostData());
+    data = (await getEventApiData());
     isLoading = false;
     notifyListeners();
   }
+
+
+
 }

@@ -5,6 +5,7 @@ import 'package:provider_project/utils/routes/routes_name.dart';
 import 'package:provider_project/view_model/user_view_model.dart';
 
 class SplashServices {
+
   Future<UserModel> getUserDate() => UserViewModel().getUser();
 
   void checkAuthentication(BuildContext context) async {
@@ -18,7 +19,7 @@ class SplashServices {
           Navigator.pushNamed(context, RoutesName.login);
         } else {
           await Future.delayed(const Duration(seconds: 3));
-          Navigator.pushNamed(context, RoutesName.home);
+          Navigator.pushNamed(context, RoutesName.bottom);
         }
       },
     ).onError(

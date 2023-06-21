@@ -17,6 +17,7 @@ class BottomNavigatorBar extends StatefulWidget {
 class _BottomNavigatorBarState extends State<BottomNavigatorBar> {
   @override
   Widget build(BuildContext context) {
+
     List<Widget> screen = [
       const HomeScreen(),
       const CourseScreen(),
@@ -43,8 +44,8 @@ class _BottomNavigatorBarState extends State<BottomNavigatorBar> {
               gap: 8,
               tabBackgroundGradient: LinearGradient(
                 colors: [
-                  const Color(0xff53E88B).withOpacity(.10),
-                  const Color(0xff15BE77).withOpacity(.10),
+                  const Color(0xff53E88B).withOpacity(.50),
+                  const Color(0xff15BE77).withOpacity(.25),
                 ],
               ),
               activeColor: const Color(0xff53E88B),

@@ -14,8 +14,8 @@ class MovieListModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.movies != null) {
-      data['movies'] = this.movies!.map((v) => v.toJson()).toList();
+    if (movies != null) {
+      data['movies'] = movies!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -36,7 +36,7 @@ class Movies {
   String? storyline;
   List<String>? actors;
   dynamic? imdbRating;
-  String? posterurl;
+  String? posterUrl;
 
   Movies(
       {this.id,
@@ -53,7 +53,7 @@ class Movies {
         this.storyline,
         this.actors,
         this.imdbRating,
-        this.posterurl});
+        this.posterUrl});
 
   Movies.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -70,26 +70,26 @@ class Movies {
     storyline = json['storyline'];
     actors = json['actors'].cast<String>();
     imdbRating = json['imdbRating'];
-    posterurl = json['posterurl'];
+    posterUrl = json['posterurl'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['year'] = this.year;
-    data['genres'] = this.genres;
-    data['ratings'] = this.ratings;
-    data['poster'] = this.poster;
-    data['contentRating'] = this.contentRating;
-    data['duration'] = this.duration;
-    data['releaseDate'] = this.releaseDate;
-    data['averageRating'] = this.averageRating;
-    data['originalTitle'] = this.originalTitle;
-    data['storyline'] = this.storyline;
-    data['actors'] = this.actors;
-    data['imdbRating'] = this.imdbRating;
-    data['posterurl'] = this.posterurl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['year'] = year;
+    data['genres'] = genres;
+    data['ratings'] = ratings;
+    data['poster'] = poster;
+    data['contentRating'] = contentRating;
+    data['duration'] = duration;
+    data['releaseDate'] = releaseDate;
+    data['averageRating'] = averageRating;
+    data['originalTitle'] = originalTitle;
+    data['storyline'] = storyline;
+    data['actors'] = actors;
+    data['imdbRating'] = imdbRating;
+    data['posterurl'] = posterUrl;
     return data;
   }
 }

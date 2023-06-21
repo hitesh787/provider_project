@@ -14,13 +14,11 @@ class CourseScreen extends StatefulWidget {
 class _CourseScreenState extends State<CourseScreen> {
   @override
   Widget build(BuildContext context) {
-    print('c');
     final changeSubject = Provider.of<ChangeCourse>(context,listen: true);
     return Scaffold(
       body: Center(
         child: Column(
           children: [
-
             const SizedBox(height: 200,),
             Text('We are learning ${changeSubject.subject}' ,style: const TextStyle(fontSize: 25),),
             const SizedBox(height: 50,),

@@ -5,6 +5,8 @@ import 'package:provider_project/provider/dataclass.dart';
 import 'package:provider_project/provider/increment_dicrement_provider.dart';
 import 'package:provider_project/provider/signup_provider.dart';
 import 'package:provider_project/provider/string_provider.dart';
+import 'package:provider_project/screen/demo_screen.dart';
+import 'package:provider_project/screen/provider_demo_screen.dart';
 import 'package:provider_project/utils/routes/routes.dart';
 import 'package:provider_project/utils/routes/routes_name.dart';
 import 'package:provider_project/view_model/auth_view_model.dart';
@@ -23,21 +25,16 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => AddAndRemove()),
         ChangeNotifierProvider(create: (context) => ChangeCourse()),
-        ChangeNotifierProvider(create: (context) => DataClass()),
+        ChangeNotifierProvider(create: (context) => EventClass()),
         ChangeNotifierProvider(create: (context) => BottomNavigatorBarProvider()),
         ChangeNotifierProvider(create: (context) => SignUpDataClass()),
         ChangeNotifierProvider(create: (context) => AuthViewModel()),
         ChangeNotifierProvider(create: (context) => UserViewModel())
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        // home: LoginPages(),
-        initialRoute: RoutesName.splash,
-        onGenerateRoute: Routes.generateRoute,
+      child: const MaterialApp(
+        home: ProviderDemoScreen(),
+        // initialRoute: RoutesName.splash,
+        // onGenerateRoute: Routes.generateRoute,
       ),
     );
   }

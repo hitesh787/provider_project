@@ -15,7 +15,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final addRemove = Provider.of<AddAndRemove>(context, listen: false);
-    print('build');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Demo Home Page'),
